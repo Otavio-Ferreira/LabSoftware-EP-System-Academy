@@ -64,7 +64,7 @@ public class TelaControlUsers extends javax.swing.JInternalFrame {
             
             //usar a biblioteca rs2xml.jar
             
-            tblAlunos.setModel(DbUtils.resultSetToTableModel(rs));
+            tblUsuarios.setModel(DbUtils.resultSetToTableModel(rs));
             
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null,e);
@@ -72,16 +72,16 @@ public class TelaControlUsers extends javax.swing.JInternalFrame {
     }
     
     public void setar_campos(){
-        int setar = tblAlunos.getSelectedRow();
-        txtId.setText(tblAlunos.getModel().getValueAt(setar, 0).toString());
-        txtNome.setText(tblAlunos.getModel().getValueAt(setar, 1).toString());
-        txtEmail.setText(tblAlunos.getModel().getValueAt(setar, 2).toString());
-        txtSenha.setText(tblAlunos.getModel().getValueAt(setar, 3).toString());
-        txtPlano.setText(tblAlunos.getModel().getValueAt(setar, 4).toString());
-        txtDataInicio.setText(tblAlunos.getModel().getValueAt(setar, 5).toString());
-        txtDataFim.setText(tblAlunos.getModel().getValueAt(setar, 6).toString());
-        txtCodeConfirm.setText(tblAlunos.getModel().getValueAt(setar, 7).toString());
-        txtSituacao.setText(tblAlunos.getModel().getValueAt(setar, 8).toString());
+        int setar = tblUsuarios.getSelectedRow();
+        txtId.setText(tblUsuarios.getModel().getValueAt(setar, 0).toString());
+        txtNome.setText(tblUsuarios.getModel().getValueAt(setar, 1).toString());
+        txtEmail.setText(tblUsuarios.getModel().getValueAt(setar, 2).toString());
+        txtSenha.setText(tblUsuarios.getModel().getValueAt(setar, 3).toString());
+        txtPlano.setText(tblUsuarios.getModel().getValueAt(setar, 4).toString());
+        txtDataInicio.setText(tblUsuarios.getModel().getValueAt(setar, 5).toString());
+        txtDataFim.setText(tblUsuarios.getModel().getValueAt(setar, 6).toString());
+        txtCodeConfirm.setText(tblUsuarios.getModel().getValueAt(setar, 7).toString());
+        txtSituacao.setText(tblUsuarios.getModel().getValueAt(setar, 8).toString());
         
         //desativar o botão adicinar após setar campos
         btnAdd.setEnabled(false);
@@ -150,7 +150,7 @@ public class TelaControlUsers extends javax.swing.JInternalFrame {
             txtDataFim.setText(null);
             txtCodeConfirm.setText(null);
             txtSituacao.setText(null);
-            ((DefaultTableModel) tblAlunos.getModel()).setRowCount(0);
+            ((DefaultTableModel) tblUsuarios.getModel()).setRowCount(0);
     }
 
     /**
@@ -165,7 +165,7 @@ public class TelaControlUsers extends javax.swing.JInternalFrame {
         txtPesquisar = new javax.swing.JTextField();
         btnPesquisar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tblAlunos = new javax.swing.JTable();
+        tblUsuarios = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -193,6 +193,7 @@ public class TelaControlUsers extends javax.swing.JInternalFrame {
         setIconifiable(true);
         setMaximizable(true);
 
+        txtPesquisar.setBackground(new java.awt.Color(204, 204, 204));
         txtPesquisar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtPesquisarActionPerformed(evt);
@@ -204,44 +205,46 @@ public class TelaControlUsers extends javax.swing.JInternalFrame {
             }
         });
 
+        btnPesquisar.setBackground(new java.awt.Color(102, 102, 102));
         btnPesquisar.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         btnPesquisar.setText("Pesquisar");
 
-        tblAlunos = new javax.swing.JTable(){
+        tblUsuarios = new javax.swing.JTable(){
             public boolean isCellEditable(int rowIndex, int colIndex){
                 return false;
             }
         };
-        tblAlunos.setBackground(new java.awt.Color(255, 255, 102));
-        tblAlunos.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        tblAlunos.setModel(new javax.swing.table.DefaultTableModel(
+        tblUsuarios.setAutoCreateRowSorter(true);
+        tblUsuarios.setBackground(java.awt.Color.lightGray);
+        tblUsuarios.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        tblUsuarios.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Id", "Nome", "Email", "Idade", "Endereco", "Mensalidade", "Inscrição", "Sexo"
+                "Id", "Nome", "Email", "Senha", "Plano", "dataInicio", "dataFim", "codeConfirm", "Situação"
             }
         ));
-        tblAlunos.setFocusable(false);
-        tblAlunos.setRowHeight(30);
-        tblAlunos.getTableHeader().setReorderingAllowed(false);
-        tblAlunos.addMouseListener(new java.awt.event.MouseAdapter() {
+        tblUsuarios.setFocusable(false);
+        tblUsuarios.setRowHeight(30);
+        tblUsuarios.getTableHeader().setReorderingAllowed(false);
+        tblUsuarios.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tblAlunosMouseClicked(evt);
+                tblUsuariosMouseClicked(evt);
             }
         });
-        jScrollPane1.setViewportView(tblAlunos);
+        jScrollPane1.setViewportView(tblUsuarios);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel1.setText("Nome");
@@ -255,11 +258,18 @@ public class TelaControlUsers extends javax.swing.JInternalFrame {
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel4.setText("Email");
 
+        txtNome.setBackground(new java.awt.Color(204, 204, 204));
+
+        txtPlano.setBackground(new java.awt.Color(204, 204, 204));
         txtPlano.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtPlanoActionPerformed(evt);
             }
         });
+
+        txtDataInicio.setBackground(new java.awt.Color(204, 204, 204));
+
+        txtEmail.setBackground(new java.awt.Color(204, 204, 204));
 
         btnAdd.setBackground(new java.awt.Color(0, 204, 0));
         btnAdd.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -300,9 +310,18 @@ public class TelaControlUsers extends javax.swing.JInternalFrame {
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel8.setText("Situação");
 
+        txtSenha.setBackground(new java.awt.Color(204, 204, 204));
+
+        txtDataFim.setBackground(new java.awt.Color(204, 204, 204));
+
+        txtCodeConfirm.setBackground(new java.awt.Color(204, 204, 204));
+
+        txtSituacao.setBackground(new java.awt.Color(204, 204, 204));
+
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel9.setText("Id");
 
+        txtId.setBackground(new java.awt.Color(204, 204, 204));
         txtId.setEnabled(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -401,11 +420,12 @@ public class TelaControlUsers extends javax.swing.JInternalFrame {
                     .addComponent(jLabel7)
                     .addComponent(txtCodeConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(txtSituacao, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2)
-                    .addComponent(txtPlano, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtPlano, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel8)
+                        .addComponent(txtSituacao, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel2)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnAdd, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
@@ -435,10 +455,10 @@ public class TelaControlUsers extends javax.swing.JInternalFrame {
         pesquisar_aluno();
     }//GEN-LAST:event_txtPesquisarKeyReleased
 
-    private void tblAlunosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblAlunosMouseClicked
+    private void tblUsuariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblUsuariosMouseClicked
         // Chamar metodo de setar campo com clique do mouse
         setar_campos();
-    }//GEN-LAST:event_tblAlunosMouseClicked
+    }//GEN-LAST:event_tblUsuariosMouseClicked
 
     private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
         // chamar método de alterar dados dos alunos
@@ -466,7 +486,7 @@ public class TelaControlUsers extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable tblAlunos;
+    private javax.swing.JTable tblUsuarios;
     private javax.swing.JTextField txtCodeConfirm;
     private javax.swing.JTextField txtDataFim;
     private javax.swing.JTextField txtDataInicio;

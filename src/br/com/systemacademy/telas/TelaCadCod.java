@@ -76,7 +76,7 @@ ResultSet rs = null;
 
         jLabel2.setText("jLabel2");
 
-        setBackground(new java.awt.Color(0, 0, 0));
+        setBackground(new java.awt.Color(102, 102, 102));
         setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
@@ -84,12 +84,11 @@ ResultSet rs = null;
         setName(""); // NOI18N
         setPreferredSize(new java.awt.Dimension(646, 410));
 
+        jLabel1.setBackground(new java.awt.Color(51, 51, 51));
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Código de confirmação");
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Situação");
 
         txtSituacao.addActionListener(new java.awt.event.ActionListener() {
@@ -104,6 +103,8 @@ ResultSet rs = null;
             }
         });
 
+        btnUsoCreate.setBackground(new java.awt.Color(102, 102, 102));
+        btnUsoCreate.setForeground(new java.awt.Color(51, 51, 51));
         btnUsoCreate.setText("CADASTRAR ALUNO");
         btnUsoCreate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

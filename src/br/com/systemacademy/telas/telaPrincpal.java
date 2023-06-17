@@ -36,8 +36,6 @@ public class telaPrincpal extends javax.swing.JFrame {
         menCad = new javax.swing.JMenu();
         menCadAlu = new javax.swing.JMenuItem();
         MenCadPer = new javax.swing.JMenuItem();
-        menCadContro = new javax.swing.JMenu();
-        MenuCadAluno = new javax.swing.JMenuItem();
         menOpc = new javax.swing.JMenu();
         MenOpcSai = new javax.swing.JMenuItem();
         menCadAju = new javax.swing.JMenu();
@@ -86,19 +84,6 @@ public class telaPrincpal extends javax.swing.JFrame {
         menCad.add(MenCadPer);
 
         Menu.add(menCad);
-
-        menCadContro.setText("Controle");
-
-        MenuCadAluno.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.ALT_MASK));
-        MenuCadAluno.setText("Usuários");
-        MenuCadAluno.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MenuCadAlunoActionPerformed(evt);
-            }
-        });
-        menCadContro.add(MenuCadAluno);
-
-        Menu.add(menCadContro);
 
         menOpc.setText("Opções");
 
@@ -156,11 +141,6 @@ public class telaPrincpal extends javax.swing.JFrame {
         aluno.setVisible(true);
         desktop.add(aluno);
     }//GEN-LAST:event_MenCadPerActionPerformed
-
-    private void MenuCadAlunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuCadAlunoActionPerformed
-        // chamar tela de controle
-        
-    }//GEN-LAST:event_MenuCadAlunoActionPerformed
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
 
@@ -221,13 +201,11 @@ public class telaPrincpal extends javax.swing.JFrame {
     private javax.swing.JMenuItem MenCadSob;
     private javax.swing.JMenuItem MenOpcSai;
     private javax.swing.JMenuBar Menu;
-    private javax.swing.JMenuItem MenuCadAluno;
     private javax.swing.JDesktopPane desktop;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu menCad;
     private javax.swing.JMenu menCadAju;
     private javax.swing.JMenuItem menCadAlu;
-    private javax.swing.JMenu menCadContro;
     private javax.swing.JMenu menOpc;
     // End of variables declaration//GEN-END:variables
 }
